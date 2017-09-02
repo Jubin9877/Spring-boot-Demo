@@ -2,7 +2,7 @@ package com.example.demo.hello;
 
 public class PersonDetail {
 
-	private String name;
+	public static String name;
 
 	public String getName() {
 		return name;

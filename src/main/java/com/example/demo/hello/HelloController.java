@@ -31,7 +31,7 @@ public class HelloController {
 	@RequestMapping(value = "/hello/person", method = RequestMethod.POST)
 	public @ResponseBody Message person(@RequestBody PersonDetail person) {
 		Message mess = new Message();
-		String name = person.getName();
+		String name = PersonDetail.name;
 		mess.setGreet("Hello " + name);
 		return mess;
 	}

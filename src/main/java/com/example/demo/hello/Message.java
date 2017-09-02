@@ -11,4 +11,12 @@ public class Message {
 	public void setGreet(String greet) {
 		this.greet = greet;
 	}
+	
+	public static int sum()
+	{
+		int a =2;
+		int b=2;
+		int c= a+b;
+		return c;
+	}
 }
