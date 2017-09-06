@@ -49,6 +49,18 @@ public class HelloController {
 			@RequestParam(required = false) String sort) {
 		Message mess = new Message();
 		mess.setGreet("Hello " + propertyId + sort);
-		System.out.println(("Hello " + propertyId + sort));
+		//System.out.println(("Hello " + propertyId + sort));
+		
+		if(sort != null && sort != "") {
+			System.out.println("sort : "+ sort);
+		}else {
+			System.out.println("sort not available ");
+		}
+		
+		if(propertyId != null) {
+			System.out.println("propertyId : "+ propertyId);
+		}else {
+			System.out.println("propertyId not available ");
+		}
 	}
 }
