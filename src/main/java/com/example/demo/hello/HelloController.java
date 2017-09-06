@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @RestController
-public class HelloController { 
+public class HelloController {
 
 	@RequestMapping("/hello/{name}")
 	public String index(@PathVariable String name) {
@@ -36,4 +36,19 @@ public class HelloController {
 		return mess;
 	}
 
+	@RequestMapping("/abc/")
+	public @ResponseBody Message mess1(@RequestParam(required = false) String x,
+			@RequestParam(value = "y", required = false) String name) {
+		Message mess = new Message();
+		mess.setGreet("Hello " + name + x);
+		return mess;
+	}
+	
+	@RequestMapping("/api/host/booking-request")
+	public void messaage(@RequestParam(required = false) Integer propertyId,
+			@RequestParam(required = false) String sort) {
+		Message mess = new Message();
+		mess.setGreet("Hello " + propertyId + sort);
+		System.out.println(("Hello " + propertyId + sort));
+	}
 }
