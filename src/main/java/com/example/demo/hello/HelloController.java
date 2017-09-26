@@ -1,6 +1,11 @@
 package com.example.demo.hello;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import java.awt.List;
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,11 +15,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @RestController
 public class HelloController {
+	
+	@Autowired
+	private CarMapperTest carmappertest;
 
 	@RequestMapping("/hello/{name}")
 	public String index(@PathVariable String name) {
 		return "Hello " + name;
 	}
+	
+	@RequestMapping("/mapping")
+	public void getmapping() {
+		carmappertest.shouldMapCarToDTO();
+	}
+	
+	
 
 	@RequestMapping("/hello")
 	public String request(@RequestParam(value = "name", required = true) String name) {
@@ -63,4 +78,9 @@ public class HelloController {
 			System.out.println("propertyId not available ");
 		}
 	}
+	
+//	@RequestMapping("/hello")
+//	public String getallTopics(){
+//		return "H";
+//	}
 }
